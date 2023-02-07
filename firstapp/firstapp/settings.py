@@ -38,12 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    "corsheaders",
     'f'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -52,6 +54,15 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'firstapp.urls'
+
+CORS_ALLOWED_ORIGINS = [
+    # "https://example.com",
+    # "https://sub.example.com",
+    "http://localhost:3000",
+    "https://www.sequelstring.com/",
+    # "http://127.0.0.1:9000",
+]
+]
 
 TEMPLATES = [
     {
@@ -130,11 +141,20 @@ REST_FRAMEWORK = {
     ]
 }
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST='smtp.office365.com'
+EMAIL_HOST='smtp-mail.outlook.com'
+# EMAIL_HOST='smtp.sequelstring.com'
+# EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
-EMAIL_HOST_USER='noreply@lohiagroup.com'
+EMAIL_HOST_USER = 'info@sequelstring.com'
+
+# EMAIL_HOST_USER = 'vivekchaturvedi0126@gmail.com'
+# EMAIL_HOST_PASSWORD = 'qrkjzezscqrrouxr'
+# EMAIL_HOST_USER='noreply@lohiagroup.com'
+# EMAIL_HOST_USER='noreply@lohiagroup.com'
 # EMAIL_HOST_USER='delhi.intern@sequelstring.com'
 # EMAIL_HOST_PASSWORD='Delhi@321'
-EMAIL_HOST_PASSWORD='RPA#2389'
+# EMAIL_HOST_PASSWORD='RPA#2389'
+EMAIL_HOST_PASSWORD='Sequelstring@123'
 EMAIL_USE_TLS=True
